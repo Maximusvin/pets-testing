@@ -1,0 +1,46 @@
+.todoWrap {
+  width: 500px;
+  background-color: #fff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  padding: 30px;
+  margin-bottom: 50px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.count {
+  margin-bottom: 20px;
+}
+
+.itemList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  transition: all 0.2s linear;
+  border-radius: 5px;
+}
+
+.itemList:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-color: rgb(243, 243, 243);
+}
+
+.itemList button {
+  cursor: pointer;
+  padding: 7px 12px;
+  margin-right: 10px;
+  transition: all 0.2s linear;
+  border-radius: 3px;
+  border: 1px solid rgb(216, 216, 216);
+}
+
+.itemList button:hover {
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */
+  box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5),
+    1px 1px 5px rgba(255, 255, 255, 1);
+}

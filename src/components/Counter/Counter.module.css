@@ -1,0 +1,36 @@
+.counter {
+  width: 500px;
+  background-color: #fff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  padding: 30px;
+  margin-bottom: 50px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.value {
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  cursor: pointer;
+  padding: 10px 15px;
+  margin-right: 10px;
+  transition: all 0.2s linear;
+  border-radius: 3px;
+  border: 1px solid rgb(216, 216, 216);
+}
+
+.button:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
