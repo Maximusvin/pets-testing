@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../../redux/todos/todo-actions';
 import s from './TodoList.module.css';
 
 class TodoEditor extends Component {
@@ -13,7 +15,7 @@ class TodoEditor extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.props.onSubmit(this.state.message);
+    this.props.onAddTodo(this.state.message);
 
     this.setState({ message: '' });
   };
@@ -35,4 +37,8 @@ class TodoEditor extends Component {
   }
 }
 
-export default TodoEditor;
+const mapDispatchToProps = dispatch => ({
+  onAddTodo: text => dispatch(addTodo(text)),
+});
+
+export default connect(null, mapDispatchToProps)(TodoEditor);
