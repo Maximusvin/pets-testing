@@ -1,0 +1,13 @@
+.nav {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.list li {
+  margin-right: 20px;
+}

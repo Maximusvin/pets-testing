@@ -3,12 +3,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 import TodoList from './TodoList';
 import TodoEditor from './TodoEditor';
+import Filter from './Filter';
 
 import s from './TodoList.module.css';
 
 class Todo extends Component {
   state = {
     todos: this.props.todos,
+    filter: '',
   };
 
   addTodo = text => {
@@ -41,13 +43,27 @@ class Todo extends Component {
       0,
     );
 
+  filterChange = e => {
+    this.setState({ filter: e.target.value });
+  };
+
+  getVisibleTodos = () => {
+    const normalizeFilter = this.state.filter.toLocaleLowerCase();
+
+    return this.state.todos.filter(todo =>
+      todo.text.toLocaleLowerCase().includes(normalizeFilter),
+    );
+  };
+
   render() {
-    const { todos } = this.state;
+    const { filter } = this.state;
 
     const stats = {
       totalTodo: this.state.todos.length,
       totalCompletedTodo: this.countCompletedTodo(),
     };
+
+    const visibleTodos = this.getVisibleTodos();
 
     return (
       <div className={s.todoWrap}>
@@ -56,9 +72,12 @@ class Todo extends Component {
         <p className={s.count}>
           Количество выполненых: {stats.totalCompletedTodo}
         </p>
+
         <TodoEditor onSubmit={this.addTodo} />
+
+        <Filter filter={filter} onChangeFilter={this.filterChange} />
         <TodoList
-          todos={todos}
+          todos={visibleTodos}
           onDelete={this.deleteTodo}
           onToggleCompleted={this.toggleCompleted}
         />

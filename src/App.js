@@ -2,6 +2,8 @@ import Layout from './components/Layout/Layout';
 import ColorPicker from './components/ColorPicker/ColorPicker';
 import Counter from './components/Counter/Counter';
 import Todo from './components/Todo';
+import NavBar from './components/NavBar/NavBar';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 const colorPickerOptions = [
@@ -21,11 +23,20 @@ const todos = [
 ];
 
 const App = () => (
-  <Layout>
-    {/* <Counter />
-    <ColorPicker options={colorPickerOptions} /> */}
-    <Todo todos={todos} />
-  </Layout>
+  <>
+    <Layout>
+      <NavBar />
+      <Switch>
+        <Route path="/counter" component={Counter} />
+        <Route path="/todo">
+          <Todo todos={todos} />
+        </Route>
+        <Route path="/colorpicker">
+          <ColorPicker options={colorPickerOptions} />
+        </Route>
+      </Switch>
+    </Layout>
+  </>
 );
 
 export default App;
